@@ -2,6 +2,7 @@ from jproperties import Properties
 
 
 class PropertyUtils:
+    """Utility file for properties."""
 
     CONST_DATA_PROPERTY: int = 0
 

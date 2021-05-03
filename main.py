@@ -2,6 +2,7 @@ from utils.property_utils import PropertyUtils
 
 
 class Main:
+    """Main execution class of the system."""
 
     def __init__(self):
         self.__property_util = PropertyUtils()
@@ -9,6 +10,17 @@ class Main:
         print(self.__core_key)
 
     def execute(self):
+        self.__set_parameters_research()
+        self.__download_json()
+        self.__export_pdfs()
+
+    def __set_parameters_research(self):
+        pass
+
+    def __download_json(self):
+        pass
+
+    def __export_pdfs(self):
         pass
 
 
