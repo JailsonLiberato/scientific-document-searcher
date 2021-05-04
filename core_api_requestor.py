@@ -6,11 +6,11 @@ import urllib.request
 class CoreApiRequestor:
     """API to search for articles."""
 
-    def __init__(self, endpoint, api_key):
+    def __init__(self, endpoint, api_key, page_size=100, page=1):
         self.endpoint = endpoint
         self.api_key = api_key
-        self.pagesize = 100
-        self.page = 1
+        self.pagesize = page_size
+        self.page = page
 
     @staticmethod
     def parse_response(decoded):
@@ -31,7 +31,7 @@ class CoreApiRequestor:
             html = response.read()
         return html
 
-    def get_method_query_request_url(self, method, query, fullText, page):
+    def get_method_query_request_url(self, method, query, fullText, page, page_size=100):
         if (fullText):
             fullText = 'true'
         else:
@@ -39,7 +39,7 @@ class CoreApiRequestor:
         params = {
             'apiKey': self.api_key,
             'page': page,
-            'pageSize': self.pagesize,
+            'pageSize': page_size,
             'fulltext': fullText
         }
         return self.endpoint + method + '/' + urllib.parse.quote(query) + '?' + urllib.parse.urlencode(params)
